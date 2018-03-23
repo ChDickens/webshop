@@ -34,3 +34,18 @@ Route::get('/shopping-cart/', [
     'uses' => 'MainController@getCart',
     'as' => 'product.shoppingCart'
 ]);
+
+Route::get('/reduce/{id}', [
+    'uses' => 'MainController@getReduceByOne',
+    'as' => 'product.reduceByOne'
+]);
+Route::get('/remove/{id}', [
+    'uses' => 'MainController@getRemoveItem',
+    'as' => 'product.remove'
+]);
+
+Route::get('/checkout', [
+    'uses' => 'ProductController@getCheckout',
+    'as' => 'checkout',
+    'middleware' => 'auth'
+]);
